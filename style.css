@@ -75,6 +75,7 @@ section img {
 
 #toolbar-spacer {
 	height: 48px;
+	min-height: 48px;
 }
 
 #toolbar {
