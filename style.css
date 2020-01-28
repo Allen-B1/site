@@ -42,6 +42,7 @@ button, .button {
 
 main {
 	flex-grow: 1;
+	background: #eee;
 }
 
 main > h1 {
