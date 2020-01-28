@@ -71,6 +71,8 @@ section {
 	margin-bottom: 16px;
 	padding: 16px;
 	background: #fff;
+	position: relative;
+	z-index: 2;
 }
 
 section img {
