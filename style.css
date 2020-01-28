@@ -103,7 +103,7 @@ section img {
 	background: #0288d1;
 }
 
-#toolbar .item:not(.dropdown):active {
+#toolbar .item:active {
 	background: #01579b;
 }
 
