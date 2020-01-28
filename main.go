@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"html/template"
 	"io"
 	"io/ioutil"
 	"log"
@@ -11,7 +12,6 @@ import (
 	"path/filepath"
 	"strings"
 	"time"
-	"html/template"
 )
 
 func listFiles(dir string) ([]string, error) {
@@ -22,7 +22,7 @@ func listFiles(dir string) ([]string, error) {
 	}
 	for _, file := range files {
 		if strings.HasSuffix(file.Name(), "~") || strings.HasPrefix(file.Name(), ".") {
-			continue		
+			continue
 		}
 		if file.IsDir() {
 			subFiles, err := listFiles(filepath.Join(dir, file.Name()))
@@ -56,12 +56,13 @@ func (f FileHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 }
 
 var Templates = template.New("").Funcs(template.FuncMap{
-	"list": func (arr ...interface{}) []interface{} {
+	"list": func(arr ...interface{}) []interface{} {
 		return arr
 	},
 })
 
 type TemplateHandler string
+
 func (t TemplateHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	err := Templates.ExecuteTemplate(w, filepath.Base(string(t)), nil)
 	if err != nil {
@@ -70,12 +71,16 @@ func (t TemplateHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
 	mux := http.NewServeMux()
 	server := &http.Server{
 		ReadHeaderTimeout: time.Second * 8,
 		WriteTimeout:      time.Second * 8,
-		Handler: mux,
-		Addr: ":8080",
+		Handler:           mux,
+		Addr:              ":" + port,
 	}
 
 	files, err := listFiles(".")
@@ -96,14 +101,14 @@ func main() {
 			if index >= 0 {
 				name = file[:index]
 			}
-			mux.Handle("/" + name, TemplateHandler(file))
+			mux.Handle("/"+name, TemplateHandler(file))
 		} else {
-			mux.Handle("/" + file, FileHandler(file))
+			mux.Handle("/"+file, FileHandler(file))
 		}
 	}
 	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		if r.URL.Path == "/" {
-			TemplateHandler("index.html").ServeHTTP(w, r)			
+			TemplateHandler("index.html").ServeHTTP(w, r)
 		} else {
 			w.Header().Set("Location", "/")
 			w.WriteHeader(303)
