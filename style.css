@@ -1,0 +1,145 @@
+body {
+	font-family: 'Lato', sans-serif;
+	margin: 0; padding: 0;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	font-size: 14px;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+	margin-top: 0;
+	margin-bottom: 8px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+
+h1 {
+	font-size: 32px;
+	font-weight: none;
+}
+
+a {
+	color: #f50057;
+	text-decoration: underline;
+}
+
+h2 {
+	text-align: center;
+	font-size: 16px;
+	color: #01579b;
+}
+
+button, .button {
+	color: #fff;
+	text-decoration: none;
+	display: inline-block;
+	padding: 8px 16px;
+	background: #f50057;
+}
+
+main {
+	flex-grow: 1;
+}
+
+main > h1 {
+	color: #fff;
+	text-align: center;
+	padding: 16px;
+}
+
+.bg-img {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	left: 0; top: 0;
+	z-index: -1;
+	filter: brightness(70%);
+	background-size: cover;
+}
+
+section {
+	max-width: 720px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 16px;
+	padding: 16px;
+	background: #fff;
+}
+
+section img {
+	width: 100%;
+}
+
+#toolbar-spacer {
+	height: 48px;
+}
+
+#toolbar {
+	font-size: 16px;
+	line-height: 16px;
+	z-index: 1;
+	background: #03a9f4;
+	position: fixed;
+	top: 0; right: 0; left: 0;
+	display: flex;
+	align-items: stretch;
+	color: #fff;
+	padding: 0 16px;
+}
+
+#toolbar .item {
+	padding: 16px;
+	position: relative;
+	display: block;
+}
+
+#toolbar .item:hover, #toolbar .item:focus {
+	background: #0288d1;
+}
+
+#toolbar .item:not(.dropdown):active {
+	background: #01579b;
+}
+
+#toolbar a {
+	text-decoration: none;
+	color: #fff;
+	outline: 0;
+}
+
+#toolbar .dropdown .dropdown-links {
+	width: 200px;
+	right: 0;
+	position: absolute;
+	top: 48px;
+	background: #03a9f4;
+
+	display: none;
+}
+
+#toolbar .dropdown .dropdown-links .item {
+	padding: 8px 16px;
+}
+
+#toolbar .dropdown:hover .dropdown-links {
+	display: block;
+}
+
+#toolbar .fill {
+	flex-grow: 1;
+}
+
+#toolbar .item.strong {
+	background: #f50057;
+}
+
+#toolbar .item.strong:hover, #toolbar .item.strong:focus {
+	background: #c51162;
+}
+
+#toolbar .item.strong:active {
+	background: #880e4f;
+}
