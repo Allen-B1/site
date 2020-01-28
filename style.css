@@ -44,6 +44,7 @@ main {
 	position: relative;
 	flex-grow: 1;
 	background: #eee;
+	z-index: -2;
 }
 
 main > h1 {
