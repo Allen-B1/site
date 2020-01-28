@@ -114,6 +114,10 @@ section img {
 	outline: 0;
 }
 
+#toolbar .dropdown {
+	position: relative;	
+}
+
 #toolbar .dropdown .dropdown-links {
 	width: 200px;
 	right: 0;
