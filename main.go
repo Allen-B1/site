@@ -21,6 +21,9 @@ func listFiles(dir string) ([]string, error) {
 		return nil, fmt.Errorf("couldn't list files: %w", err)
 	}
 	for _, file := range files {
+		if strings.HasSuffix(file.Name(), "~") || strings.HasPrefix(file.Name(), ".") {
+			continue		
+		}
 		if file.IsDir() {
 			subFiles, err := listFiles(filepath.Join(dir, file.Name()))
 			if err != nil {
@@ -29,7 +32,7 @@ func listFiles(dir string) ([]string, error) {
 			for _, subFile := range subFiles {
 				out = append(out, filepath.Join(file.Name(), subFile))
 			}
-		} else if !strings.HasSuffix(file.Name(), "~") {
+		} else {
 			out = append(out, file.Name())
 		}
 	}
