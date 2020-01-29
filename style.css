@@ -44,7 +44,6 @@ main {
 	position: relative;
 	flex-grow: 1;
 	background: #eee;
-	z-index: -2;
 }
 
 main > h1 {
@@ -52,6 +51,7 @@ main > h1 {
 	text-align: center;
 	padding: 32px;
 	line-height: 32px;
+	z-index: 2;
 }
 
 .bg-img {
