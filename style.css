@@ -98,7 +98,6 @@ section img {
 	align-items: stretch;
 	color: #fff;
 	padding: 0 16px;
-	overflow-x: auto;
 }
 
 #toolbar .item {
