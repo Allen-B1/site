@@ -44,6 +44,7 @@ main {
 	position: relative;
 	flex-grow: 1;
 	background: #eee;
+	padding: 16px;
 }
 
 main > h1 {
@@ -58,11 +59,12 @@ main > h1 {
 .bg-img {
 	width: 100%;
 	height: 144px;
-	position: fixed;
-	left: 0; top: 48px;
+	position: absolute;
+	left: 0; top: 0;
 	z-index: 1;
 	filter: brightness(70%);
 	background-size: cover;
+	background-attachment: fixed;
 }
 
 section {
@@ -129,6 +131,7 @@ section img {
 	position: absolute;
 	top: 48px;
 	background: #03a9f4;
+	z-index: 5;
 
 	display: none;
 }
