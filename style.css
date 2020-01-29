@@ -52,6 +52,7 @@ main > h1 {
 	padding: 32px;
 	line-height: 32px;
 	z-index: 2;
+	position: relative;
 }
 
 .bg-img {
@@ -59,7 +60,7 @@ main > h1 {
 	height: 144px;
 	position: absolute;
 	left: 0; top: 0;
-	z-index: -1;
+	z-index: 1;
 	filter: brightness(70%);
 	background-size: cover;
 }
