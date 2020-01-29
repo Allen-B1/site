@@ -47,13 +47,20 @@ main {
 	padding: 16px;
 }
 
-main > h1 {
+main > h1, main > p, main header h1, main header p {
 	color: #fff;
 	text-align: center;
-	padding: 32px;
-	line-height: 32px;
 	z-index: 2;
 	position: relative;
+}
+
+main > h1 {
+    line-height: 32px;
+    padding: 16px 32px;
+}
+
+main header {
+    padding: 16px 32px;
 }
 
 .bg-img {
