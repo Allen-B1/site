@@ -21,15 +21,19 @@ h1 {
 	font-weight: none;
 }
 
-a {
-	color: #f50057;
-	text-decoration: underline;
-}
-
 h2 {
 	text-align: center;
 	font-size: 16px;
+}
+
+h1, h2 {
+	font-family: 'Fredoka One', serif;
 	color: #01579b;
+}
+
+a {
+	color: #f50057;
+	text-decoration: underline;
 }
 
 button, .button {
@@ -40,10 +44,15 @@ button, .button {
 	background: #f50057;
 }
 
-main {
+.name {
+	font-family: 'Fredoka One', serif;
+	font-size: 18px;
+}
+
+main {	
 	position: relative;
 	flex-grow: 1;
-	background: #eee;
+	background: #ddd;
 	padding: 16px;
 }
 
@@ -59,6 +68,10 @@ main > h1 {
     padding: 16px 32px;
 }
 
+main > h1, main header h1 {
+	color: #bbdefb;
+}
+
 main header {
     padding: 16px 32px;
 }
@@ -69,7 +82,7 @@ main header {
 	position: absolute;
 	left: 0; top: 0;
 	z-index: 1;
-	filter: brightness(70%);
+	filter: brightness(50%);
 	background-size: cover;
 	background-attachment: fixed;
 }
