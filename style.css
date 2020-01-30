@@ -117,13 +117,13 @@ section img {
 	display: flex;
 	align-items: stretch;
 	color: #fff;
-	padding: 0 16px;
 }
 
 #toolbar .item {
 	padding: 16px;
 	position: relative;
 	display: block;
+	white-space: nowrap;
 }
 
 #toolbar .item:hover, #toolbar .item:focus {
@@ -178,3 +178,34 @@ section img {
 #toolbar .item.strong:active {
 	background: #880e4f;
 }
+
+#toolbar .item-more {
+	display: none;
+}
+
+@media (max-width: 720px) {
+	#toolbar .item-more {
+		display: block;
+	}
+
+	#toolbar .more .more-links {
+		position: absolute;
+		right: 0;
+		top: 48px;
+		width: 100%;
+		background: #03a9f4;
+		z-index: 5;
+
+		display: none;
+	}
+
+	#toolbar .more:hover .more-links {
+		display: flex;
+	}
+}
+
+#toolbar .more-links, #toolbar .more {
+	display: flex;
+	flex-direction: row;
+}
+
